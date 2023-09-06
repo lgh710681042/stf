@@ -21,6 +21,26 @@
             i.fa.fa-power-off.fa-fw
           label.btn.btn-sm.btn-primary-outline(ng-model='wifiEnabled', ng-click='toggleWifi(true)', uib-btn-radio='true', uib-tooltip='{{"Enable WiFi" | translate}}')
             i.fa.fa-wifi.fa-fw
+    .row 
+      .col-md-12 
+        div
+      form(name='botAutomation', novalidate, enable-autofill)
+        .form-group
+          .input-group
+            span.input-group-addon
+              i.fa.fa-user.fa-fw
+            input.form-control(ng-model='username', name='username', required, type='text', placeholder='username',
+            autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login username')
+          .alert.alert-warning(ng-show='botAutomation.username.$dirty && botAutomation.username.$invalid')
+            span(ng-show='botAutomation.username.$error.required', translate) Please enter your Store username
+
+        button(ng-click='automation()').btn.btn-sm.btn-danger
+          i.fa.fa-refresh
+          span(translate) Automation
+
+        button(ng-click='killAutomation()').btn.btn-sm.btn-danger
+          i.fa.fa-refresh
+          span(translate) Automation
 
     //.row
       .col-md-12
